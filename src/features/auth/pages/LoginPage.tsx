@@ -26,9 +26,7 @@ function LoginPage() {
 
         try {
             setLoading(true);
-
             const result = await loginUser(email.trim(), password);
-
             console.log('Inicio de sesión exitoso:', result);
             // Más adelante redirigiremos al feed.
         } catch (error) {
