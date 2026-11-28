@@ -192,7 +192,7 @@ function RegisterPage() {
                                 </button>
                             </div>
 
-                            <p className="mt-2 text-[10px] text-slate-400">Mínimo 8 caracteres, 1 letra minúscula, 1 letra mayúscula y 1 número.</p>
+                            <p className="mt-2 text-[10px] text-slate-400">Mínimo 8 caracteres: 1 letra minúscula, 1 letra mayúscula, 1 número y 1 símbolo.</p>
                         </div>
 
                         {/* Términos */}

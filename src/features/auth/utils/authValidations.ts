@@ -61,6 +61,9 @@ export function validatePassword(password: string): string | null {
     if (!/[0-9]/.test(password)) {
         return 'Debe contener al menos un número.';
     };
+    if (!/[!@#$%^&*()_+\-=[\]{};':"\\|<>?,./`~]/.test(password)) {
+        return 'Debe contener al menos un carácter especial (ej. !, @, #, $).';
+    };
     if (/\s/.test(password)) {
         return 'La contraseña no debe contener espacios.';
     };
