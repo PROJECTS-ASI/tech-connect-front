@@ -1,17 +1,19 @@
 
 import { useState, type SubmitEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../services/authService';
 import { validateEmail, validatePassword } from '../utils/authValidations';
 
 function LoginPage() {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
-    const [rememberMe, setRememberMe] = useState(false)
+    const [rememberMe, setRememberMe] = useState(false);
 
-    const [loading, setLoading] = useState(false)
-    const [errorMessage, setErrorMessage] = useState('')
+    const [loading, setLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const navigate = useNavigate();
 
     async function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -28,7 +30,7 @@ function LoginPage() {
             setLoading(true);
             const result = await loginUser(email.trim(), password);
             console.log('Inicio de sesión exitoso:', result);
-            // Más adelante redirigiremos al feed.
+            navigate('/feed');
         } catch (error) {
             console.error(error);
             setErrorMessage(error instanceof Error ? error.message : 'Ocurrió un error al iniciar sesión.');
